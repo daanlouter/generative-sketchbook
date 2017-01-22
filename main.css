@@ -1,0 +1,29 @@
+body{
+	margin:0;
+	padding-top:1px;
+	font-family:"Courier New";
+	text-align: center;
+}
+
+canvas{
+	margin:-1px auto 0;
+}
+
+.sketchContainer{
+	margin-top:60px;
+}
+
+.sketchContainer[data-item="0"]{
+	margin-top:120px;
+}
+
+.sketchContainer a{
+	font-size:30px;
+	text-decoration: none;
+	border-bottom:1px solid;
+	color:#1354AD;
+}
+
+.sketchContainer a:hover{
+	color:#4A13AD;
+}

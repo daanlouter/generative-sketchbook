@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Daan's generative sketchbook</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+
+
+        <script src="p5.min.js"></script>
+        <script src="sketches.js"></script>
+        <script>
+            if(!document.location.search){
+                sketches.forEach(function(e,i){
+                    var sketchContainer = document.createElement('div');
+                        sketchContainer.className = "sketchContainer"
+                        sketchContainer.dataset.item = i;
+
+                    var sketchLink = document.createElement('a')
+                        sketchLink.href = "?sketch=" + e.id
+                        sketchLink.innerHTML = "Sketch " + e.date;
+
+                    sketchContainer.appendChild(sketchLink);
+                    document.body.appendChild(sketchContainer)
+                })
+            }else{
+                var sketchId = document.location.search.replace("?sketch=","")
+                var sketchScript = document.createElement('script');
+                    sketchScript.src = "sketches/" + sketchId + ".js";
+
+                document.body.appendChild(sketchScript);
+
+            }
+        </script>
+    </body>
+</html>
