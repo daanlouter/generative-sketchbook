@@ -9,13 +9,14 @@
         <link rel="stylesheet" href="main.css">
     </head>
     <body>
+        <header><button>🔙</button></header>
 
 
         <script src="p5.min.js"></script>
         <script src="sketches.js"></script>
         <script>
             if(!document.location.search){
-                sketches.forEach(function(e,i){
+                sketches.reverse().forEach(function(e,i){
                     var sketchContainer = document.createElement('div');
                         sketchContainer.className = "sketchContainer"
                         sketchContainer.dataset.item = i;
@@ -28,13 +29,17 @@
                     document.body.appendChild(sketchContainer)
                 })
             }else{
+                document.body.className = "is-sketch";
                 var sketchId = document.location.search.replace("?sketch=","")
                 var sketchScript = document.createElement('script');
                     sketchScript.src = "sketches/" + sketchId + ".js";
 
                 document.body.appendChild(sketchScript);
-
             }
+
+            document.querySelector('header button').addEventListener('click',function(){
+                document.location = '/';
+            })
         </script>
     </body>
 </html>

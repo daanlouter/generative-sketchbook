@@ -5,6 +5,52 @@ body{
 	text-align: center;
 }
 
+.is-sketch header{
+	display:block;
+}
+
+header{
+	height:100px;
+	position: fixed;
+	left:0;
+	right:0;
+	top:0;
+	opacity:0;
+	transition:opacity 100ms;
+	display:none;
+}
+
+header:hover{
+	opacity:1;
+}
+
+header button{
+	height:60px;
+	margin-top:20px;
+	/*padding-right:0;*/
+	width:60px;
+	border-radius:30px;
+	background:#fff;
+	position: relative;
+	border:none;
+	font-size:30px;
+	font-family:"Courier New";
+	box-shadow:0 0 10px rgba(0,0,0,0.2);
+	outline:none;
+	cursor:pointer;
+	/*animation: moveFinger 1s infinite;*/
+}
+
+header button:hover{
+	/*animation-duration: 500ms;*/
+}
+
+@keyframes moveFinger{
+	0%{padding-right:0}
+	50%{padding-right:20px}
+	100%{padding-right:0}
+}
+
 canvas{
 	margin:-1px auto 0;
 }
