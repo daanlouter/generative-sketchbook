@@ -14,16 +14,16 @@ function setup(){
 	createCanvas(windowWidth,windowHeight);
 	background(0);
 	textFont(font);
-	textSize(402);
+	textSize(302);
 	textAlign(CENTER)
 	
 	
 }
 
 function draw(){
-	background(0,100);	
+	background(0,255);	
 	fill(1,2,0,255)
-	text("DAAN", windowWidth/2, windowHeight/2 + 100);
+	text("FLOURISH", windowWidth/2, windowHeight/2 + 100);
 	loadPixels();
 	ps = pixels;
 
@@ -42,11 +42,12 @@ function draw(){
 
 
 function Dot(){
-	this.pos = createVector(Math.round(random(windowWidth)),Math.round(random(windowHeight)));
+	this.pos = createVector(Math.round(random(windowWidth)),Math.round(random(windowHeight*.25,windowHeight*0.75)));
 	this.speed = createVector(Math.round(random(1,10)),Math.round(random(1,10)));
 	this.slowSpeed = createVector(Math.round(random(1,2)),Math.round(random(1,2)));
 	this.r = 1;
 	this.fill = 255;
+	this.showing;
 
 	this.move = function(){
 		var currentPixel = (this.pos.y * width * 2) + this.pos.x;
@@ -56,15 +57,19 @@ function Dot(){
 		if(color === 1){
 			this.pos.add(this.slowSpeed);
 			this.fill = 255;
+			this.r = 2;
+			this.showing = true;
 		}else{
+			this.showing = false;
 			this.pos.add(this.speed)
 			this.fill = 80;
+			this.r = 1;
 		}
 
 		if(this.pos.y < 0){
 			this.pos.y = windowHeight;
-		}else if(this.pos.y > windowHeight){
-			this.pos.y = 0;
+		}else if(this.pos.y > windowHeight*0.75){
+			this.pos.y = windowHeight*0.25;
 		}
 
 		if(this.pos.x < 0){
@@ -76,7 +81,8 @@ function Dot(){
 	}
 
 	this.show = function(){
-		fill(this.fill);
+		if(!this.showing) { return }
+		fill(0,200,this.fill);
 		noStroke();
 		ellipse(this.pos.x,this.pos.y,this.r,this.r)
 	}
