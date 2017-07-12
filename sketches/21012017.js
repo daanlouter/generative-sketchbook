@@ -6,7 +6,7 @@ var dots = [];
 function setup(){
 	createCanvas(windowWidth,windowHeight);
 	// blendMode(HARD_LIGHT);
-	background(240);
+	background(0);
 	centerX = width/2;
 	centerY = height/2;
 	for(var i=0; i<count; i++){
@@ -15,7 +15,7 @@ function setup(){
 }
 
 function draw(){
-	background(240);
+	background(0);
 	noStroke();
 
 	for(var i=0; i<count; i++){
