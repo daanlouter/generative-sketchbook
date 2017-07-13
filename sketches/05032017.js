@@ -2,6 +2,7 @@ var font;
 var dots = [];
 var ps;
 var heuy = false;
+var p;
 
 function preload(){
 	font = loadFont('walsheim.otf');
@@ -17,7 +18,9 @@ function setup(){
 	textSize(302);
 	textAlign(CENTER)
 	
-	
+	p = pixelDensity();
+
+	console.log(p);
 }
 
 function draw(){
@@ -45,8 +48,8 @@ function Dot(){
 	this.showing;
 
 	this.move = function(){
-		var currentPixel = (this.pos.y * width * 2) + this.pos.x;
-		var color = ps[currentPixel*4*2];
+		var currentPixel = (this.pos.y * width * p) + this.pos.x;
+		var color = ps[currentPixel*4*p];
 
 		// console.log
 		if(color === 2){
@@ -64,7 +67,7 @@ function Dot(){
 		if(this.pos.y < 0){
 			this.pos.y = windowHeight;
 		}else if(this.pos.y > windowHeight*0.75){
-			this.pos.y = windowHeight*0.25;
+			this.pos.y = 0;
 		}
 
 		if(this.pos.x < 0){
