@@ -1,6 +1,6 @@
 var center;
 var gravity = 200;
-var count = 400;
+var count = 600;
 var dots = [];
 
 function setup(){
@@ -28,15 +28,14 @@ function draw(){
 function Dot(){
 	this.angle = random(360);
 	this.speed = random(-0.01,0.01) ;
-	this.gravity = random((height/3) - 80,(height/3));
-	this.radius = random(1,3);
+	this.gravity = random((height/2) - 160,(height/2));
+	this.radius = random(2,60);
 	this.moving = random() > 0.8 ? random((height/8)-40,(height/8)+40) : false;
 	this.x, this.y;
 
 	this.show = function(){
-		fill(41,25,92,255)
 		noStroke();
-		fill(255)
+		fill(255,200)
 		// fill(this.g,this.r,255,random(25))
 		ellipse(this.x,this.y,this.radius,this.radius)
 	}

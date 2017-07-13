@@ -21,8 +21,8 @@ function setup(){
 }
 
 function draw(){
-	background(0,255);	
-	fill(1,2,0,255)
+	background(0);	
+	fill(2,2,0,255)
 	text("FLOURISH", windowWidth/2, windowHeight/2 + 100);
 	loadPixels();
 	ps = pixels;
@@ -32,11 +32,6 @@ function draw(){
 		dot.show();
 	})
 	
-
-	if(!heuy){
-		// console.log(pixels)
-		heuy = true
-	}
 }
 
 
@@ -54,16 +49,16 @@ function Dot(){
 		var color = ps[currentPixel*4*2];
 
 		// console.log
-		if(color === 1){
+		if(color === 2){
 			this.pos.add(this.slowSpeed);
 			this.fill = 255;
-			this.r = 2;
+			this.r = 4;
 			this.showing = true;
 		}else{
 			this.showing = false;
 			this.pos.add(this.speed)
 			this.fill = 80;
-			this.r = 1;
+			this.r = 0;
 		}
 
 		if(this.pos.y < 0){
@@ -82,7 +77,7 @@ function Dot(){
 
 	this.show = function(){
 		if(!this.showing) { return }
-		fill(0,200,this.fill);
+		fill(this.fill);
 		noStroke();
 		ellipse(this.pos.x,this.pos.y,this.r,this.r)
 	}
